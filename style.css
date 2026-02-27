@@ -40,10 +40,17 @@ main{
 }
 
 body{
-    background:linear-gradient(to bottom,rgb(212, 224, 255),#ffffff);
+    background:linear-gradient(to bottom,rgb(173, 196, 255),#ffffff);
     min-height: 100vh; 
     margin: 0; 
+    animation: focus 0.5s forwards;
 }
+
+@keyframes focus {
+            0% {filter:blur(8px);}
+            100% {filter:blur(0)}
+}
+
 .btn1, .btn2{
     border: 0;
     color: #ffffff;
