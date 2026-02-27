@@ -1,0 +1,216 @@
+<html>
+<head>
+    <title>Bank Login & Register</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f7f4f7;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* 主容器 */
+        .bank-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 550px;
+        }
+
+        /* 标题 */
+        .bank-container h1 {
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        /* 表单组 */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="password"]:focus {
+            outline: none;
+            border-color: #3182ce;
+            box-shadow: 0 0 0 3px rgba(23, 56, 88, 0.1);
+        }
+
+        /* 按钮样式 */
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            background-color: #3182ce;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2b6cb0;
+        }
+
+        .btn-secondary {
+            background-color: #48bb78;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #38a169;
+        }
+
+        /* 文本域 */
+        .log-area {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #4077bf;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 120px;
+            margin-bottom: 20px;
+        }
+
+        /* 结果提示 */
+        .result-area {
+            margin-top: 20px;
+            padding: 16px;
+            background-color: #f7fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3182ce;
+        }
+
+        .result-area label {
+            color: #4a5568;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+
+        .result-area input {
+            border: none;
+            background: transparent;
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let users = [];
+
+        function register() {
+            let username = document.bankForm.username.value;
+            let password = document.bankForm.password.value;
+
+            if (!username || !password) {
+                document.bankForm.result.value = "Please fill in both fields!";
+                return;
+            }
+
+            let userExists = users.some(user => user.username === username);
+            if (userExists) {
+                document.bankForm.result.value = "Username already registered!";
+                return;
+            }
+
+            users.push({ username, password });
+            let logContent = document.bankForm.logArea.value;
+            let newLog = `[REGISTER] User: ${username} registered successfully\n` +
+                         `_ _ _ _ _ _ _\n`;
+            document.bankForm.logArea.value = logContent + newLog;
+            document.bankForm.result.value = "Registration successful!";
+            document.bankForm.username.value = "";
+            document.bankForm.password.value = "";
+        }
+
+        function login() {
+            let username = document.bankForm.username.value;
+            let password = document.bankForm.password.value;
+
+            if (!username || !password) {
+                document.bankForm.result.value = "Please fill in both fields!";
+                return;
+            }
+
+            let foundUser = users.find(user => user.username === username && user.password === password);
+            if (foundUser) {
+                let logContent = document.bankForm.logArea.value;
+                let newLog = `[LOGIN] User: ${username} logged in successfully\n` +
+                             `_ _ _ _ _ _ _\n`;
+                document.bankForm.logArea.value = logContent + newLog;
+                document.bankForm.result.value = "Login successful!";
+            } else {
+                document.bankForm.result.value = "Invalid username or password!";
+            }
+            document.bankForm.username.value = "";
+            document.bankForm.password.value = "";
+        }
+    </script>
+    <div class="bank-container">
+        <h1>Bank Login & Register</h1>
+        <form name="bankForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+
+            <input type="button" class="btn btn-primary" value="Register" onclick="register()">
+            <input type="button" class="btn btn-secondary" value="Login" onclick="login()">
+
+            <br>
+            <textarea name="logArea" class="log-area" rows="5" cols="30" readonly></textarea>
+
+            <div class="result-area">
+                <label for="result">Status:</label>
+                <input type="text" name="result" id="result" readonly>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
