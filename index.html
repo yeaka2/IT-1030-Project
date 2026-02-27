@@ -8,27 +8,30 @@
 </head>
 <body>
     <h2>Compound Interest Calculator</h2>
-     <main>
+    <main>
         <div>
-        <label>Principal: </label>
-        <input type="text" step = "0.001" class="input1"/>
-        </div>
-        
-        <div>
-        <label>Time (years): </label>
-        <input type="text" step = "0.001" class="input2"/>
+            <label for="oneInput">Principal($):</label>
+            <input type="text" class="input1" id="oneInput"/>
         </div>
 
         <div>
-        <label>Rate:</label>
-        <input type="text" class="input3"/>
+            <label for="twoInput">Time (years):</label>
+            <input type="text" class="input2" id="twoInput"/>
         </div>
+
         <div>
-            <label>Total: </label>
+            <label for="threeInput">Rate(Percent):</label>
+            <input type="text" class="input3" id="threeInput"/>
+        </div>
+
+        <div>
+            <label>Total:</label>
             <input type="number" class="output"/>
         </div>
+
         <button class="btn1">Calculate</button>
+        <button class="btn2" onclick="window.location.href='zhu_IT1030.html'">Back</button>
     </main>
-     <script src="manipulations.js"></script>
+    <script src="manipulations.js"></script>
 </body>
 </html>
