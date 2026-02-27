@@ -25,7 +25,6 @@ label{
     border:0;
     border-radius: 20px;
     background-color: #e4e4e4;
-
     display: flex;
 }
 main{
@@ -45,11 +44,31 @@ body{
     min-height: 100vh; 
     margin: 0; 
 }
-.btn1{
+.btn1, .btn2{
     border: 0;
     color: #ffffff;
     background-color: #9796e8;
     width:100px;
     height: 63px;
     border-radius: 30px;
+    text-align: center;
+    line-height: 63px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 0 #7a79c2;
+    user-select: none;
+}
+
+.btn2 {
+    margin-left: 20px;
+}
+
+.btn1:hover, .btn2:hover {
+    background-color: #8685d8;
+}
+
+.btn1:active, .btn2:active {
+    box-shadow: 0 2px 0 #7a79c2;
+    transform: translateY(2px);
 }
