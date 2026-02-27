@@ -9,7 +9,6 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         body {
             background-color: #f7f4f7;
             padding: 40px;
@@ -18,7 +17,6 @@
             align-items: center;
             min-height: 100vh;
         }
-
         /* 主容器 */
         .bank-container {
             background-color: white;
@@ -28,7 +26,6 @@
             width: 100%;
             max-width: 550px;
         }
-
         /* 标题 */
         .bank-container h1 {
             color: #2d3748;
@@ -37,19 +34,16 @@
             font-size: 24px;
             font-weight: 600;
         }
-
         /* 表单组 */
         .form-group {
             margin-bottom: 20px;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 8px;
             color: #4a5568;
             font-weight: 500;
         }
-
         .form-group input[type="text"],
         .form-group input[type="password"] {
             width: 100%;
@@ -59,14 +53,12 @@
             font-size: 16px;
             transition: border-color 0.3s ease;
         }
-
         .form-group input[type="text"]:focus,
         .form-group input[type="password"]:focus {
             outline: none;
             border-color: #3182ce;
             box-shadow: 0 0 0 3px rgba(23, 56, 88, 0.1);
         }
-
         /* 按钮样式 */
         .btn {
             padding: 12px 24px;
@@ -79,25 +71,20 @@
             margin-right: 10px;
             margin-bottom: 10px;
         }
-
         .btn-primary {
             background-color: #3182ce;
             color: white;
         }
-
         .btn-primary:hover {
             background-color: #2b6cb0;
         }
-
         .btn-secondary {
             background-color: #48bb78;
             color: white;
         }
-
         .btn-secondary:hover {
             background-color: #38a169;
         }
-
         /* 文本域 */
         .log-area {
             width: 100%;
@@ -110,7 +97,6 @@
             min-height: 120px;
             margin-bottom: 20px;
         }
-
         /* 结果提示 */
         .result-area {
             margin-top: 20px;
@@ -119,76 +105,79 @@
             border-radius: 8px;
             border-left: 4px solid #3182ce;
         }
-
         .result-area label {
             color: #4a5568;
             font-weight: 500;
             margin-right: 10px;
         }
-
         .result-area input {
             border: none;
             background: transparent;
             font-size: 18px;
             font-weight: 600;
             color: #2d3748;
-            width: 200px;
+            width: 400px;
         }
     </style>
 </head>
 <body>
     <script>
         let users = [];
-
         function register() {
             let username = document.bankForm.username.value;
             let password = document.bankForm.password.value;
 
             if (!username || !password) {
-                document.bankForm.result.value = "Please fill in both fields!";
-                return;
+                document.bankForm.result.value = "Please fill in your account and password!";
+                return false;
             }
 
-            let userExists = users.some(user => user.username === username);
+            let userExists = false;
+            for (let i = 0; i < users.length; i++) {
+                let currentUser = users[i];
+                if (currentUser.username === username) {
+                    userExists = true;
+                    break;
+                }
+            }
             if (userExists) {
                 document.bankForm.result.value = "Username already registered!";
                 return;
             }
-
             users.push({ username, password });
             let logContent = document.bankForm.logArea.value;
-            let newLog = `[REGISTER] User: ${username} registered successfully\n` +
+            let newLog = `User: ${username} registered successfully\n` +
                          `_ _ _ _ _ _ _\n`;
             document.bankForm.logArea.value = logContent + newLog;
-            document.bankForm.result.value = "Registration successful!";
+            document.bankForm.result.value = "Register successfully!";
             document.bankForm.username.value = "";
             document.bankForm.password.value = "";
         }
-
         function login() {
             let username = document.bankForm.username.value;
             let password = document.bankForm.password.value;
 
             if (!username || !password) {
-                document.bankForm.result.value = "Please fill in both fields!";
+                document.bankForm.result.value = "Please fill in your account and password!";
                 return;
             }
 
-            let foundUser = users.find(user => user.username === username && user.password === password);
+            let foundUser = undefined;
+            for (let i = 0; i < users.length; i++) {
+                let currentUser = users[i];
+                if (currentUser.username === username && currentUser.password === password) {
+                    foundUser = currentUser;
+                    break;
+                }
+            }
             if (foundUser) {
                 let logContent = document.bankForm.logArea.value;
-                let newLog = `[LOGIN] User: ${username} logged in successfully\n` +
-                        `_ _ _ _ _ _ _\n`;
+                let newLog = `User: ${username} logged in successfully\n` +
+                             `_ _ _ _ _ _ _\n`;
                 document.bankForm.logArea.value = logContent + newLog;
-                document.bankForm.result.value = "Login successful! Redirecting...";
-
-                // 登录成功后，延迟 1 秒跳转到下一个页面
-                setTimeout(function() {
-            // 这里替换成你要跳转的页面
-                window.location.href = "index.html";
-                }, 1000);
+                document.bankForm.result.value = "Login successfully!";
             } else {
-            document.bankForm.result.value = "Invalid username or password!";
+                document.bankForm.result.value = "Invalid username or password!";
             }
             document.bankForm.username.value = "";
             document.bankForm.password.value = "";
