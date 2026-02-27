@@ -16,19 +16,30 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            animation: focus 0.5s forwards;
+        }
+
+        @keyframes focus {
+            0% {filter:blur(8px);}
+            100% {filter:blur(0)}
         }
         /* 主容器 */
         .bank-container {
-            background-color: white;
+            /* background-color: white;
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             width: 100%;
-            max-width: 550px;
+            max-width: 550px; */
+
+            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 12px;
         }
         /* 标题 */
         .bank-container h1 {
-            color: #2d3748;
+            color: #001331;
             text-align: center;
             margin-bottom: 25px;
             font-size: 24px;
@@ -41,7 +52,7 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #4a5568;
+            color: #191745;
             font-weight: 500;
         }
         .form-group input[type="text"],
@@ -118,6 +129,31 @@
             color: #2d3748;
             width: 400px;
         }
+        .video-background{
+            position:fixed;
+            top:0;
+            left:0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index:-2;
+        }
+        .video-background video{
+            width:100%;
+            height:100%;
+            object-fit: cover;
+            filter: blur(8px);
+            transform: scale(1.1);
+        }
+        .white-overlay{
+            position:fixed;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.3);
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
@@ -141,7 +177,7 @@
                 }
             }
             if (userExists) {
-                document.bankForm.result.value = "Username have already registered!";
+                document.bankForm.result.value = "Username already registered!";
                 return;
             }
             users.push({ username, password });
@@ -177,7 +213,7 @@
                 document.bankForm.logArea.value = logContent + newLog;
                 document.bankForm.result.value = "Login successfully!";
                 setTimeout(function() {
-                    window.location.href = "index.html";
+                    window.location.href = "nav.html";
                 }, 1);
             } else {
                 document.bankForm.result.value = "Invalid username or password!";
@@ -210,5 +246,12 @@
             </div>
         </form>
     </div>
+    <!--背景视频 -->
+            <div class="video-background">
+                <video autoplay muted loop playsinline>
+                    <source src="login.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="white-overlay"></div>
 </body>
 </html>
