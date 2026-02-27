@@ -141,7 +141,7 @@
                 }
             }
             if (userExists) {
-                document.bankForm.result.value = "Username already registered!";
+                document.bankForm.result.value = "Username have already registered!";
                 return;
             }
             users.push({ username, password });
@@ -177,7 +177,7 @@
                 document.bankForm.logArea.value = logContent + newLog;
                 document.bankForm.result.value = "Login successfully!";
                 setTimeout(function() {
-                    window.location.href = "index(1).html";
+                    window.location.href = "index.html";
                 }, 1);
             } else {
                 document.bankForm.result.value = "Invalid username or password!";
