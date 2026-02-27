@@ -176,6 +176,9 @@
                              `_ _ _ _ _ _ _\n`;
                 document.bankForm.logArea.value = logContent + newLog;
                 document.bankForm.result.value = "Login successfully!";
+                setTimeout(function() {
+                    window.location.href = "index(1).html";
+                }, 1);
             } else {
                 document.bankForm.result.value = "Invalid username or password!";
             }
