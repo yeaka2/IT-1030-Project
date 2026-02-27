@@ -178,11 +178,17 @@
             if (foundUser) {
                 let logContent = document.bankForm.logArea.value;
                 let newLog = `[LOGIN] User: ${username} logged in successfully\n` +
-                             `_ _ _ _ _ _ _\n`;
+                        `_ _ _ _ _ _ _\n`;
                 document.bankForm.logArea.value = logContent + newLog;
-                document.bankForm.result.value = "Login successful!";
+                document.bankForm.result.value = "Login successful! Redirecting...";
+
+                // 登录成功后，延迟 1 秒跳转到下一个页面
+                setTimeout(function() {
+            // 这里替换成你要跳转的页面
+                window.location.href = "index.html";
+                }, 1000);
             } else {
-                document.bankForm.result.value = "Invalid username or password!";
+            document.bankForm.result.value = "Invalid username or password!";
             }
             document.bankForm.username.value = "";
             document.bankForm.password.value = "";
