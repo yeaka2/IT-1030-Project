@@ -22,7 +22,7 @@ label{
 .input1, .input2, .input3, .output{
     margin-bottom: 50px;
     margin-top: 20px;
-    width:50%;
+    width:100%;
     height: 100px;
     border:0;
     border-radius: 20px;
@@ -36,6 +36,26 @@ label{
     box-shadow: 0 0 12px rgba(173, 196, 255, 0.5);
     transform: scale(1.02);
 }
+
+.enter{
+    flex:1;
+    min-width: 150px;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.buttons{
+    flex: 0 0 100%;         
+    display: flex;          
+    gap: 8px;               
+    justify-content: left;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+
+
 main{
     border:0;
     background-color: #ffffff;
@@ -50,6 +70,7 @@ main{
     display: flex;
     gap: 20px;
     animation: slideInUp 0.7s ease-out;
+    flex-direction: column;
 }
 
 .main-wrapper {
@@ -84,6 +105,10 @@ main{
     border-radius: 15px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     animation: slideInUp 0.8s ease-out;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    
 }
 
 body{
@@ -150,12 +175,15 @@ body{
     margin: 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     text-align: center;
-    height: 230px;
+    height: 300px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     animation: slideInUp 0.9s ease-out, chartGlow 3s ease-in-out infinite;
     animation-delay: 0.1s;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-bottom: 40px;
+    align-items: center;
 }
 
 .chart-container:hover {
@@ -175,6 +203,14 @@ body{
     max-width: 100%;
 }
 
+.chart-row1{
+    display: flex;
+    gap: 20px;
+}
+
+.chart-row2{
+    display: flex;
+}
 
 /* Table Styles */
 .table-wrapper {
