@@ -7,6 +7,7 @@ h2{
     color: rgb(30, 36, 61);
     text-align: center;
     margin-top: 30px;
+    animation: slideInDown 0.6s ease-out;
 }
 
 label{
@@ -26,17 +27,62 @@ label{
     border-radius: 20px;
     background-color: #e4e4e4;
     display: flex;
+    transition: all 0.3s ease;
+}
+
+.input1:focus, .input2:focus, .input3:focus, .output:focus {
+    background-color: #d9d9f0;
+    box-shadow: 0 0 12px rgba(173, 196, 255, 0.5);
+    transform: scale(1.02);
 }
 main{
     border:0;
     background-color: #ffffff;
-    width: 825px;
+    width: 95%;
+    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
     margin-top: 30px;
     border-radius: 20px;
-    padding:50px;
+    padding:30px;
+    display: flex;
+    gap: 20px;
+    animation: slideInUp 0.7s ease-out;
+}
+
+.main-wrapper {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    align-items: stretch;
+}
+
+.left-panel {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-panel {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: space-between;
+}
+
+
+.input-group {
+    text-align: center;
+    margin-bottom: 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    animation: slideInUp 0.8s ease-out;
 }
 
 body{
@@ -47,8 +93,134 @@ body{
 }
 
 @keyframes focus {
-            0% {filter:blur(8px);}
-            100% {filter:blur(0)}
+    0% {filter:blur(8px);}
+    100% {filter:blur(0)}
+}
+
+@keyframes slideInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes chartGlow {
+    0% {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    50% {
+        box-shadow: 0 4px 16px rgba(173, 196, 255, 0.3);
+    }
+    100% {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+}
+
+/* Navigation Bar */
+.chart-container {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    animation: slideInUp 0.9s ease-out, chartGlow 3s ease-in-out infinite;
+    animation-delay: 0.1s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(173, 196, 255, 0.3);
+}
+
+.chart-container h3 {
+    font-size: 12px;
+    color: rgb(30, 36, 61);
+    margin-bottom: 6px;
+    flex-shrink: 0;
+}
+
+.chart-container canvas {
+    flex: 1;
+    max-width: 100%;
+}
+
+
+/* Table Styles */
+.table-wrapper {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.table-wrapper h3 {
+    font-size: 14px;
+    color: rgb(30, 36, 61);
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.data-table thead {
+    background-color: #9796e8;
+    color: white;
+}
+
+.data-table th {
+    padding: 8px 5px;
+    text-align: center;
+    border-bottom: 2px solid #9796e8;
+    font-weight: 600;
+}
+
+.data-table td {
+    padding: 6px 5px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 11px;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
 }
 
 .btn1, .btn2{
@@ -65,6 +237,7 @@ body{
     outline: none;
     box-shadow: 0 4px 0 #7a79c2;
     user-select: none;
+    transition: all 0.2s ease;
 }
 
 .btn2 {
@@ -73,6 +246,7 @@ body{
 
 .btn1:hover, .btn2:hover {
     background-color: #8685d8;
+    animation: pulse 0.4s ease-in-out;
 }
 
 .btn1:active, .btn2:active {
