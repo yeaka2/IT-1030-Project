@@ -15,6 +15,6 @@ document.querySelector('.nav-button4').addEventListener('mouseup',function(){
 })
 
 document.querySelector('.nav-button5').addEventListener('mouseup',function(){
-    document.location.href='zhu_IT1030.html'
+    document.location.href='Personal.html'
 })
 
