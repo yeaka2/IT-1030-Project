@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Page</title>
+    <style>
+        *{
+            margin: 0;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+        body{
+            background: linear-gradient(to bottom,rgb(173, 196, 255),#ffffff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: focus 0.5s forwards;
+        }
+        @keyframes focus {
+            0% {filter:blur(8px);}
+            100% {filter:blur(0)}
+        }
+        .user-card {
+            background: rgba(255,255,255,0.9);
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .username {
+            font-size: 22px;
+            color: #1e243d;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        .back-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            background-color: #9796e8;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #8685d8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="user-card">
+        <div class="username">Welcome, <span id="username">User</span></div>
+        <button class="back-btn" onclick="goBack()">Back to Login</button>
+    </div>
+
+    <script>
+        // Get logged in username
+        const user = localStorage.getItem("currentUser") || "Guest";
+        document.getElementById("username").innerText = user;
+
+        // Back to login page
+        function goBack() {
+            window.location.href = "zhu_IT1030.html";
+        }
+    </script>
+</body>
+</html>
