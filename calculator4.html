@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Savings Calculator</h2>
+    <main class="main-wrapper">
+        <div class="left-panel">
+            <div class="input-group">
+                <div class="enter">
+                    <label for="initialInput">Initial Balance ($):</label>
+                    <input type="text" class="initial" id="initialInput"/>
+                </div>
+                <div class="enter">
+                    <label for="depositInput">Monthly Deposit ($):</label>
+                    <input type="text" class="monthly" id="depositInput"/>
+                </div>
+                <div class="enter">
+                    <label for="rateInput">Annual Rate (%):</label>
+                    <input type="text" class="rate" id="rateInput"/>
+                </div>
+                <div class="enter">
+                    <label for="yearsInput">Time (years):</label>
+                    <input type="text" class="years" id="yearsInput"/>
+                </div>
+                <div class="enter">
+                    <label>Total Savings:</label>
+                    <input type="number" class="output" readonly/>
+                </div>
+                <div class="buttons">
+                    <button class="btn1 calc-savings">Calculate</button>
+                    <button class="btn2" onclick="window.location.href='nav.html'">Back</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="savings.js"></script>
+</body>
+</html>
