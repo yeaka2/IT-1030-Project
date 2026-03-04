@@ -1,47 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Loan Calculator</title>
-    <link rel="stylesheet" href="loan.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loan Calculator</title>
+
+  <!-- Reuse your existing calculator look -->
+  <link rel="stylesheet" href="loan.css" />
 </head>
+
 <body>
+  <main>
+    <h2>Loan Calculator</h2>
 
-    <nav>
-        <div class="all-top-button">
-            <button class="nav-button1">Compound Interest</button>
-            <button class="nav-button2">Exchange Rate</button>
-            <button class="nav-button3">Loan Calculator</button>
-            <button class="nav-button4">calculator4</button>
-            <button class="nav-button5">Personal Page</button>
+    <div class="main-wrapper">
+      <!-- LEFT: inputs + outputs -->
+      <section class="left-panel">
+        <div class="input-group">
+          <label class="enter" for="loanAmount">Loan Amount ($):</label>
+          <input class="input1 enter" id="loanAmount" type="number" min="0" step="0.01" value="200000" />
         </div>
-    </nav>
 
-    <main>
-        <h1>Loan Repayment Calculator</h1>
-
-        <div class="calculator-container">
-            <label>Loan Amount:</label>
-            <input type="number" id="loanAmount" placeholder="Enter loan amount">
-
-            <label>Annual Interest Rate (%):</label>
-            <input type="number" id="interestRate" placeholder="Enter annual interest rate">
-
-            <label>Loan Period (Years):</label>
-            <input type="number" id="loanYears" placeholder="Enter number of years">
-
-            <button id="calculateLoan">Calculate</button>
-
-            <div class="result">
-                <p>Monthly Payment: <span id="monthlyPayment">-</span></p>
-                <p>Total Payment: <span id="totalPayment">-</span></p>
-                <p>Total Interest: <span id="totalInterest">-</span></p>
-            </div>
+        <div class="input-group">
+          <label class="enter" for="loanYears">Term (years):</label>
+          <input class="input2 enter" id="loanYears" type="number" min="0" step="1" value="30" />
         </div>
-    </main>
 
-    <script src="navactions.js"></script>
-    <script src="loan.js"></script>
+        <div class="input-group">
+          <label class="enter" for="loanRate">Annual Rate (%):</label>
+          <input class="input3 enter" id="loanRate" type="number" min="0" step="0.01" value="5" />
+        </div>
 
+        <div class="buttons">
+          <button class="btn1" type="button">Calculate</button>
+          <button class="btn2" type="button">Back</button>
+        </div>
+
+        <div class="input-group">
+          <label class="enter" for="monthlyPay">Monthly Payment ($):</label>
+          <input class="output output-monthly enter" id="monthlyPay" type="text" readonly />
+        </div>
+
+        <div class="input-group">
+          <label class="enter" for="totalInterest">Total Interest ($):</label>
+          <input class="output output-interest enter" id="totalInterest" type="text" readonly />
+        </div>
+
+        <div class="input-group">
+          <label class="enter" for="totalPay">Total Payment ($):</label>
+          <input class="output output-total enter" id="totalPay" type="text" readonly />
+        </div>
+      </section>
+
+      <!-- RIGHT: charts -->
+      <section class="right-panel">
+        <div class="chart-row1">
+          <div class="chart-container">
+            <h3>Remaining Balance (by year)</h3>
+            <canvas id="balanceChart"></canvas>
+          </div>
+
+          <div class="chart-container">
+            <h3>Principal vs Interest</h3>
+            <canvas id="pieChart"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-row2">
+          <div class="chart-container">
+            <h3>Cumulative Paid (by year)</h3>
+            <canvas id="cumulativeChart"></canvas>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="table-wrapper">
+      <h3>Amortization Schedule (monthly)</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Payment</th>
+            <th>Principal</th>
+            <th>Interest</th>
+            <th>Balance</th>
+          </tr>
+        </thead>
+        <tbody id="amortBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Chart.js (same library your other calculator code expects) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="loan.js"></script>
 </body>
 </html>
