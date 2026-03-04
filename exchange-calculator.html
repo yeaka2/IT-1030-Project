@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange Calculator</title>
+    <link rel="stylesheet" href="exchange-calculator.css">
+</head>
+<body>
+    <h2>Currency Exchange Calculator</h2>
+    <main class="main-wrapper">
+        <!-- Left Section: Input Form -->
+        <div class="left-panel">
+            <div class="input-group">
+                <div class="enter enter1">
+                    <label for="fromCurrency">From Currency:</label>
+                    <select class="input1" id="fromCurrency">
+                        <option value="">FROM (currency)</option>
+                    </select>
+                </div>
+
+                <div class="enter enter2">
+                    <label for="fromAmount">Amount:</label>
+                    <input type="text" class="input2" id="fromAmount" placeholder="input money"/>
+                </div>
+
+                <div class="enter enter3">
+                    <label for="toCurrency">To Currency:</label>
+                    <select class="input3" id="toCurrency">
+                        <option value="">TO (currency)</option>
+                    </select>
+                </div>
+
+                <div class="enter enter4">
+                    <label>Exchange Rate:</label>
+                    <input type="text" class="input4" id="exchangeRate" readonly/>
+                </div>
+
+                <div class="enter enter5">
+                    <label>Converted Amount:</label>
+                    <input type="number" class="output" id="convertedAmount" readonly/>
+                </div>
+
+                <div class="buttons">
+                    <button class="btn1">Convert</button>
+                    <button class="btn2" onclick="window.location.href='nav.html'">Back</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section: Charts -->
+        <div class="right-panel">
+  
+            <div class="chart-row1">
+                <div class="chart-container container1">
+                    <h3>Exchange Rate Comparison</h3>
+                    <canvas id="compoundChart"></canvas>
+                </div>
+            
+                <div class="chart-container container2">
+                    <h3>Top Currencies</h3>
+                    <canvas id="comparisonChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-row2">
+                <div class="chart-container container3">
+                    <h3>Conversion Analysis</h3>
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="exchange-calculator.js"></script>
+</body>
+</html>
