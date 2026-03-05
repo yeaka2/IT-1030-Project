@@ -1,5 +1,5 @@
 document.querySelector('.nav-button1').addEventListener('mouseup',function(){
-    document.location.href='index.html'
+    document.location.href='interest-rate-calculator.html'
 })
 
 document.querySelector('.nav-button2').addEventListener('mouseup',function(){
