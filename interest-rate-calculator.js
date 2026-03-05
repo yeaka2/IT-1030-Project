@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
  * Fetch the latest Best Lending Rate from HKMA API
  */
 async function fetchLatestRate() {
-    console.log('🔄 开始获取利率数据...');
+    console.log('starting to get interest rate data...');
     const refreshBtn = document.getElementById('refreshRateBtn');
     refreshBtn.classList.add('loading');
     refreshBtn.disabled = true;
@@ -41,7 +41,7 @@ async function fetchLatestRate() {
         }
         
         const data = await response.json();
-        console.log('✅ API响应成功:', data);
+        console.log('API Worked:', data);
         
         // Check if the response is successful
         if (data.header.success && data.result.records && data.result.records.length > 0) {
@@ -51,7 +51,7 @@ async function fetchLatestRate() {
                     currentRate = record.best_lending_rate;
                     const effectDate = new Date(record.effect_date);
                     
-                    console.log('💰 找到利率:', currentRate, '生效日期:', record.effect_date);
+                    console.log('Rate found:', currentRate, 'date:', record.effect_date);
                     
                     // Update the UI
                     document.getElementById('bestLendingRate').value = currentRate.toFixed(4);
@@ -63,7 +63,7 @@ async function fetchLatestRate() {
                     showNotification(`Rate updated successfully: ${currentRate.toFixed(4)}%`, 'success');
                     
                     // Auto-calculate with new rate
-                    console.log('🧮 调用自动计算...');
+                    console.log('caculating...');
                     calculateInterest();
                     break;
                 }
@@ -72,13 +72,13 @@ async function fetchLatestRate() {
             throw new Error('No valid rate data found in API response');
         }
     } catch (error) {
-        console.error('❌ 获取利率失败:', error);
+        console.error('XXX failed to get rate:', error);
         showNotification(`Error fetching rate: ${error.message}`, 'error');
         
         // Set default rate if fetch fails
         if (!currentRate) {
             currentRate = 5.0; // Default fallback rate
-            console.log('⚠️ 使用默认利率:', currentRate);
+            console.log(' use default rate:', currentRate);
             document.getElementById('bestLendingRate').value = currentRate.toFixed(4);
             document.getElementById('currentRate').textContent = currentRate.toFixed(4);
             document.getElementById('rateUpdateInfo').innerHTML = 
@@ -102,11 +102,11 @@ function calculateInterest() {
     const rate = parseFloat(document.getElementById('bestLendingRate').value) || 0;
     const n = parseInt(document.getElementById('compoundingFrequency').value) || 12;
 
-    console.log('🧮 计算开始:', { principal, years, rate, n });
+    console.log('started to calculate:', { principal, years, rate, n });
 
     // Validate inputs
     if (principal <= 0 || years <= 0 || rate < 0) {
-        console.warn('⚠️ 输入无效，清空结果');
+        console.warn('invalid input!Cleared the result');
         clearResults();
         return;
     }
@@ -124,7 +124,7 @@ function calculateInterest() {
     // Calculate profit margin
     const profitMargin = (totalInterest / principal) * 100;
 
-    console.log('📊 计算结果:', { finalAmount, totalInterest, effectiveAnnualRate, profitMargin });
+    console.log('Calculate result:', { finalAmount, totalInterest, effectiveAnnualRate, profitMargin });
 
     // Get compounding frequency text
     const compoundingTexts = {
