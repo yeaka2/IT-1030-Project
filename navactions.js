@@ -22,3 +22,4 @@ document.querySelector('.nav-button6').addEventListener('mouseup',function(){
     document.location.href='Personal.html'
 })
 
+
