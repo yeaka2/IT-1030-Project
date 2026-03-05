@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Rate Calculator - Hong Kong Banks</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="interest-rate-calculator.css">
+</head>
+<body>
+    <h2>Hong Kong Bank Interest Rate Calculator</h2>
+    <main>
+        <div class="main-wrapper">
+            <!-- LEFT PANEL: Input Form -->
+            <section class="left-panel">
+                <div class="input-group">
+                    <label for="principalAmount">Principal Amount (HKD):</label>
+                    <input class="input1" id="principalAmount" type="number" placeholder="Enter principal amount" min="0" step="0.01" value="100000"/>
+                </div>
+
+                <div class="input-group">
+                    <label for="investmentPeriod">Investment Period (Years):</label>
+                    <input class="input2" id="investmentPeriod" type="number" placeholder="Enter period" min="0" step="0.1" value="1"/>
+                </div>
+
+                <div class="input-group">
+                    <label for="bestLendingRate">Best Lending Rate (%):</label>
+                    <div class="rate-container">
+                        <input class="input3" id="bestLendingRate" type="number" placeholder="Auto-fetched rate" min="0" step="0.01" readonly/>
+                        <button class="btn-refresh" id="refreshRateBtn">🔄 Refresh</button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="compoundingFrequency">Compounding Frequency:</label>
+                    <select class="input3" id="compoundingFrequency">
+                        <option value="1">Annual</option>
+                        <option value="2">Semi-Annual</option>
+                        <option value="4">Quarterly</option>
+                        <option value="12" selected>Monthly</option>
+                        <option value="365">Daily</option>
+                    </select>
+                </div>
+
+                <div class="buttons">
+                    <button class="btn1" id="calculateBtn">Calculate</button>
+                    <button class="btn2" onclick="window.location.href='nav.html'">Back</button>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section">
+                    <h3>📊 Calculation Results</h3>
+                    
+                    <div class="results-grid">
+                        <!-- Principal Amount -->
+                        <div class="result-card principal-card">
+                            <div class="result-label">Principal Amount</div>
+                            <div class="result-value" id="displayPrincipal">HKD 0.00</div>
+                            <div class="result-subtitle">Initial Investment</div>
+                        </div>
+
+                        <!-- Total Interest -->
+                        <div class="result-card interest-card">
+                            <div class="result-label">Total Interest Earned</div>
+                            <div class="result-value interest-highlight" id="totalInterest">HKD 0.00</div>
+                            <div class="result-subtitle">Profit from Investment</div>
+                        </div>
+
+                        <!-- Final Amount -->
+                        <div class="result-card final-card">
+                            <div class="result-label">Final Amount</div>
+                            <div class="result-value final-highlight" id="finalAmount">HKD 0.00</div>
+                            <div class="result-subtitle">Principal + Interest</div>
+                        </div>
+
+                        <!-- Effective Rate -->
+                        <div class="result-card rate-card">
+                            <div class="result-label">Effective Annual Rate</div>
+                            <div class="result-value" id="effectiveRate">0.00%</div>
+                            <div class="result-subtitle">Actual Yearly Return</div>
+                        </div>
+                    </div>
+
+                    <!-- Summary Section -->
+                    <div class="summary-box">
+                        <div class="summary-row">
+                            <span class="summary-label">Investment Period:</span>
+                            <span class="summary-value" id="summaryPeriod">0 years</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Interest Rate:</span>
+                            <span class="summary-value" id="summaryRate">0.00%</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Compounding:</span>
+                            <span class="summary-value" id="summaryCompounding">Monthly</span>
+                        </div>
+                        <div class="summary-row highlight-row">
+                            <span class="summary-label">Profit Margin:</span>
+                            <span class="summary-value" id="profitMargin">0.00%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT PANEL: Chart n info-->
+            <section class="right-panel">
+                <div class="chart-container">
+                    <h3>Interest Growth Over Time</h3>
+                    <canvas id="growthChart"></canvas>
+                </div>
+
+                <div class="info-box">
+                    <h3>Rate Information</h3>
+                    <div class="info-content">
+                        <p><strong>Data Source:</strong> Hong Kong Monetary Authority (HKMA)</p>
+                        <p id="rateUpdateInfo"><strong>Last Updated:</strong> Loading...</p>
+                        <p><strong>Current Best Lending Rate:</strong> <span id="currentRate">Loading...</span>%</p>
+                        <div class="rate-formula">
+                            <p><strong>Formula:</strong></p>
+                            <p>A = P × (1 + r/n)^(n×t)</p>
+                            <p style="font-size: 0.9em; margin-top: 5px;">
+                                A: Final Amount | P: Principal | r: Annual Rate | 
+                                n: Compounding Frequency | t: Time in Years
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="interest-rate-calculator.js"></script>
+</body>
+</html>
