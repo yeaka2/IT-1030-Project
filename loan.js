@@ -5,10 +5,9 @@ let pieChart = null;
 let cumulativeChart = null;
 
 document.querySelector('.btn1').addEventListener('click', function () {
-    // Same input-reading style as your existing calculator [2]
-    const thePrin = Number(document.querySelector('.input1').value) || 0;        // loan amount
-    const theTime = Number(document.querySelector('.input2').value) || 0;        // years
-    const theRate = Number(document.querySelector('.input3').value) / 100 || 0;  // annual rate (decimal)
+    const thePrin = Number(document.querySelector('.input1').value) || 0;
+    const theTime = Number(document.querySelector('.input2').value) || 0;
+    const theRate = Number(document.querySelector('.input3').value) / 100 || 0;
 
     const result = calculateLoan(thePrin, theRate, theTime);
 
@@ -20,6 +19,17 @@ document.querySelector('.btn1').addEventListener('click', function () {
     updatePieChart(thePrin, result.totalInterest);
     updateCumulativeChart(result.yearlyLabels, result.yearlyCumPrincipal, result.yearlyCumInterest);
     updateAmortTable(result.schedule);
+
+    // add account
+        const billData = {
+        "Loan Amount": money(thePrin),
+        "Term (years)": theTime,
+        "Annual Rate": (theRate * 100).toFixed(2) + "%",
+        "Monthly Payment": money(result.monthlyPayment),
+        "Total Interest": money(result.totalInterest),
+        "Total Payment": money(result.totalPayment)
+    };
+        showLoanBill(billData); 
 });
 
 // Auto-calc on load (same behavior as your existing page) [2]
@@ -237,4 +247,29 @@ function updateAmortTable(schedule) {
     }
 
     tbody.appendChild(frag);
+}
+// decorate the alert
+function showLoanBill(loanData) {
+  const modal = document.getElementById('billModal');
+  const content = document.getElementById('billContent');
+  
+  content.innerHTML = '';
+
+  Object.entries(loanData).forEach(function(entry) {
+    const p = document.createElement('p');
+    p.innerHTML = `<strong>${entry[0]}:</strong> ${entry[1]}`;
+    content.appendChild(p);
+  });
+
+  modal.style.display = 'block';
+
+  document.querySelector('.close-btn').onclick = function() {
+    modal.style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  }
 }
