@@ -125,8 +125,7 @@ function generateExpenseCharts(categories, expenseValues) {
 
 const btnExp = document.querySelector('.calc-expense');
 if (btnExp) {
-    btnExp.addEventListener('click', function(e) {
-        e.preventDefault();
+    btnExp.addEventListener('click', function() {
         const years = Number(document.querySelector('.years').value);
 
         if (isNaN(years)) {
@@ -147,11 +146,12 @@ if (btnExp) {
         let monthlyTotal = 0;
         const monthlyExpenses = [];
         
-        categories.forEach(cat => {
-            const val = Number(document.querySelector(`.expense.${cat}`).value) || 0;
+        for (let i = 0; i < categories.length; i++) {
+            let cat = categories[i];
+            const val = Number(document.querySelector(`.expense.${cat}`).value) || 0;   
             monthlyExpenses.push(val);
             monthlyTotal += val;
-        });
+        }
 
         const total = monthlyTotal * 12 * years;
         document.querySelector('.output').value = Math.round(total * 100) / 100;
