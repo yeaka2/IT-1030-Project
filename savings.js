@@ -3,8 +3,7 @@
 
 const btn = document.querySelector('.calc-savings');
 if (btn) {
-    btn.addEventListener('click', function (e) {
-        e.preventDefault();
+    btn.addEventListener('click', function () {
         const P = Number(document.querySelector('.initial').value) || 0;
     const monthly = Number(document.querySelector('.monthly').value) || 0;
     const r = (Number(document.querySelector('.rate').value) || 0) / 100;

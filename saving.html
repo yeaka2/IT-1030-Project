@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Page Header Section -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1>💰 Savings Calculator</h1>
+            <p>Plan your financial future with our intelligent savings calculator. Calculate how your savings will grow over time with compound interest and regular deposits.</p>
+        </div>
+    </div>
+
+    <!-- Features Cards -->
+    <div class="features-section">
+        <div class="feature-card">
+            <div class="feature-icon">📈</div>
+            <h3>Growth Tracking</h3>
+            <p>Watch your savings grow with compound interest calculations</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Goal Planning</h3>
+            <p>Set your targets and visualize the timeline to reach them</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Visual Charts</h3>
+            <p>See detailed breakdowns of principal and deposit growth</p>
+        </div>
+    </div>
+
+    <main class="main-wrapper">
+        <div class="left-panel">
+            <div class="input-group">
+                <div class="enter">
+                    <label for="initialInput">Initial Balance ($):</label>
+                    <input type="text" class="initial" id="initialInput"/>
+                </div>
+                <div class="enter">
+                    <label for="depositInput">Monthly Deposit ($):</label>
+                    <input type="text" class="monthly" id="depositInput"/>
+                </div>
+                <div class="enter">
+                    <label for="rateInput">Annual Rate (%):</label>
+                    <input type="text" class="rate" id="rateInput"/>
+                </div>
+                <div class="enter">
+                    <label for="yearsInput">Time (years):</label>
+                    <input type="text" class="years" id="yearsInput"/>
+                </div>
+                <div class="enter">
+                    <label>Total Savings:</label>
+                    <input type="number" class="output" readonly/>
+                </div>
+                <div class="buttons">
+                    <button class="btn1 calc-savings">Calculate</button>
+                    <button class="btn2" onclick="window.location.href='nav.html'">Back</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Results Statistics Section -->
+    <div class="results-section" id="resultsSection" style="display:none;">
+        <h2>Savings Summary</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Monthly Deposits Total</div>
+                <div class="stat-value" id="totalDeposits">$0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Principal Growth</div>
+                <div class="stat-value" id="principalGrowth">$0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Interest Earned</div>
+                <div class="stat-value" id="interestEarned">$0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Return on Investment</div>
+                <div class="stat-value" id="roi">0%</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-container" id="chartContainer" style="display:none;">
+        <h3>Savings Growth Visualization</h3>
+        <div class="chart-wrapper">
+            <canvas id="savingsChart"></canvas>
+        </div>
+    </div>
+    
+    <script src="savings.js"></script>
+</body>
+</html>
