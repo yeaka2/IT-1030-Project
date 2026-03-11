@@ -248,28 +248,38 @@ function updateAmortTable(schedule) {
 
     tbody.appendChild(frag);
 }
-// decorate the alert
+
+
 function showLoanBill(loanData) {
   const modal = document.getElementById('billModal');
   const content = document.getElementById('billContent');
-  
+  const overlay = document.querySelector('.overlay');
+  const modalContent = document.querySelector('.modal-content');
+
   content.innerHTML = '';
 
-  Object.entries(loanData).forEach(function(entry) {
-    const p = document.createElement('p');
-    p.innerHTML = `<strong>${entry[0]}:</strong> ${entry[1]}`;
-    content.appendChild(p);
-  });
-
-  modal.style.display = 'block';
+  for (const key in loanData) {
+    if (loanData.hasOwnProperty(key)) {
+      const p = document.createElement('p');
+      p.innerHTML = `<strong>${key}:</strong> ${loanData[key]}`;
+      content.appendChild(p);
+    }
+  }
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden'); 
+  modalContent.classList.remove('hidden');
 
   document.querySelector('.close-btn').onclick = function() {
-    modal.style.display = 'none';
+    modal.classList.add('hidden'); 
+    overlay.classList.add('hidden'); 
+    modalContent.classList.add('hidden');
   }
 
   window.onclick = function(event) {
     if (event.target === modal) {
-      modal.style.display = 'none';
+      modal.classList.add('hidden');
+      overlay.classList.add('hidden');
+      modalContent.classList.add('hidden');
     }
   }
 }

@@ -22,28 +22,45 @@
 }
 /* background */
 .modal {
-  display: none; /* hidden, by default */
   position: fixed;
-  z-index: 1000; /* make sure it is on the top */
+  z-index: 1000; 
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4); /* half-transparent black */
 }
 
-/* 模态框内容 */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from top, at middle vertically */
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* width */
-  max-width: 500px; /* max width */
-  border-radius: 10px; /* rounded corners */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* shadow */
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-family: 'Arial', sans-serif;
+  position: relative;
+  z-index: 1001;
+}
+
+
+.overlay {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100vw;   
+  height: 100vh;  
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+
+.hidden {
+  display: none !important; 
 }
 
 /* the close button */
@@ -80,3 +97,4 @@
   min-width: 180px;
   display: inline-block;
 }
+
