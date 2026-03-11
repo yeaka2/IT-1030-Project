@@ -5,9 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h2>Expense Calculator</h2>
+    <!-- Page Header Section -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1>💸 Expense Calculator</h1>
+            <p>Track and analyze your spending across different categories. Understand where your money goes and make informed financial decisions.</p>
+        </div>
+    </div>
+
+    <!-- Features Cards -->
+    <div class="features-section">
+        <div class="feature-card">
+            <div class="feature-icon">🏷️</div>
+            <h3>Category Tracking</h3>
+            <p>Monitor expenses across 9 different spending categories</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📉</div>
+            <h3>Spending Analysis</h3>
+            <p>Identify your spending patterns and top expense categories</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💡</div>
+            <h3>Budget Insights</h3>
+            <p>Get data-driven insights to optimize your budget</p>
+        </div>
+    </div>
+
     <main class="main-wrapper">
         <div class="left-panel">
             <div class="input-group">
@@ -62,6 +89,26 @@
             </div>
         </div>
     </main>
+
+    <!-- Chart Results Section -->
+    <div class="results-section" id="resultsSection" style="display:none;">
+        <h2>Expense Analysis</h2>
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>Spending Distribution</h3>
+                <div class="chart-wrapper">
+                    <canvas id="expensePieChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>Category Breakdown</h3>
+                <div class="chart-wrapper">
+                    <canvas id="expenseBarChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="expense.js"></script>
 </body>
 </html>
