@@ -7,33 +7,11 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
-    <!-- Page Header Section -->
-    <div class="page-header">
-        <div class="header-content">
-            <h1>💰 Savings Calculator</h1>
-            <p>Plan your financial future with our intelligent savings calculator. Calculate how your savings will grow over time with compound interest and regular deposits.</p>
-        </div>
-    </div>
-
-    <!-- Features Cards -->
-    <div class="features-section">
-        <div class="feature-card">
-            <div class="feature-icon">📈</div>
-            <h3>Growth Tracking</h3>
-            <p>Watch your savings grow with compound interest calculations</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <h3>Goal Planning</h3>
-            <p>Set your targets and visualize the timeline to reach them</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">📊</div>
-            <h3>Visual Charts</h3>
-            <p>See detailed breakdowns of principal and deposit growth</p>
-        </div>
-    </div>
+<body class="saving-page">
+    <section class="saving-intro">
+        <h1>💰 Savings Calculator</h1>
+        <p>Calculate how your savings will grow over time with compound interest.</p>
+    </section>
 
     <main class="main-wrapper">
         <div class="left-panel">
@@ -93,6 +71,25 @@
         <h3>Savings Growth Visualization</h3>
         <div class="chart-wrapper">
             <canvas id="savingsChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Features Cards (moved to bottom) -->
+    <div class="features-section saving-features">
+        <div class="feature-card">
+            <div class="feature-icon">📈</div>
+            <h3>Growth Tracking</h3>
+            <p>Watch your savings grow with compound interest calculations</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Goal Planning</h3>
+            <p>Set your targets and visualize the timeline to reach them</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Visual Charts</h3>
+            <p>See detailed breakdowns of principal and deposit growth</p>
         </div>
     </div>
     
