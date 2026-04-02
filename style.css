@@ -606,4 +606,76 @@ body{
     }
 }
 
+/* ===== Expense Page: Simple Intro + Better Chart Layout ===== */
+.expense-page .expense-intro {
+    max-width: 980px;
+    margin: 28px auto 18px;
+    padding: 0 16px;
+    text-align: center;
+}
+
+.expense-page .expense-intro h1 {
+    margin: 0 0 8px;
+    font-size: 34px;
+    font-weight: 800;
+    color: rgb(30, 36, 61);
+    letter-spacing: 0.3px;
+}
+
+.expense-page .expense-intro p {
+    margin: 0;
+    color: rgb(90, 110, 145);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.expense-page .expense-results {
+    max-width: 1200px;
+    margin: 28px auto 40px;
+    padding: 20px;
+}
+
+.expense-page .expense-results h2 {
+    text-align: center;
+    margin: 0 0 18px;
+}
+
+.expense-page .expense-charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    align-items: stretch;
+}
+
+.expense-page .expense-chart-card {
+    margin: 0;
+    padding: 16px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.expense-page .expense-chart-card h3 {
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.expense-page .expense-chart-card .chart-wrapper {
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .expense-page .expense-charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .expense-page .expense-chart-card .chart-wrapper {
+        min-height: 300px;
+    }
+}
+
 
