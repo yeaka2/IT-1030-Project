@@ -1,5 +1,100 @@
 @import url("style.css");
 
+/* ===== Loan page chart layout optimization ===== */
+.loan-page .main-wrapper {
+  display: grid;
+  grid-template-columns: minmax(320px, 430px) 1fr;
+  align-items: start;
+  gap: 28px;
+}
+
+.loan-page main {
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loan-page .left-panel {
+  position: sticky;
+  top: 16px;
+}
+
+.loan-page .left-panel .input-group {
+  margin-bottom: 14px;
+}
+
+.loan-page .right-panel {
+  display: block;
+}
+
+.loan-page .loan-chart-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  grid-template-areas:
+    "balance pie"
+    "cumulative cumulative";
+  gap: 24px;
+}
+
+.loan-page .loan-chart-wide:first-child {
+  grid-area: balance;
+}
+
+.loan-page .loan-chart-pie {
+  grid-area: pie;
+}
+
+.loan-page .loan-chart-wide:last-child {
+  grid-area: cumulative;
+}
+
+.loan-page .right-panel .loan-chart-card {
+  margin: 0;
+  height: auto;
+  min-height: 420px;
+  padding: 24px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #ffffff 0%, rgb(248, 251, 255) 100%);
+  border: 1px solid rgba(173, 196, 255, 0.3);
+  box-shadow: 0 10px 24px rgba(120, 150, 220, 0.12);
+}
+
+.loan-page .right-panel .loan-chart-card h3 {
+  font-size: 17px;
+  margin-bottom: 14px;
+  color: rgb(30, 36, 61);
+  text-align: center;
+  font-weight: 700;
+}
+
+.loan-page .loan-canvas-wrap {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(173, 196, 255, 0.25);
+  border-radius: 14px;
+  padding: 10px;
+}
+
+.loan-page .loan-canvas-line {
+  height: 285px;
+}
+
+.loan-page .loan-canvas-line-bottom {
+  height: 300px;
+}
+
+.loan-page .loan-canvas-pie {
+  height: 285px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.loan-page .right-panel .loan-chart-card canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 /* reduce vertical space a bit for the 3 result boxes */
 .output-monthly,
 .output-interest,
@@ -17,8 +112,33 @@
 }
 
 @media (max-width: 900px) {
-  .main-wrapper { flex-direction: column; }
-  .chart-row1 { flex-direction: column; }
+  .loan-page .main-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .loan-page .left-panel {
+    position: static;
+  }
+  .loan-page .loan-chart-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "balance"
+      "pie"
+      "cumulative";
+    gap: 18px;
+  }
+  .loan-page .right-panel .loan-chart-card {
+    min-height: 360px;
+    padding: 20px;
+  }
+  .loan-page .loan-canvas-line,
+  .loan-page .loan-canvas-line-bottom {
+    height: 250px;
+  }
+  .loan-page .loan-canvas-pie {
+    height: 250px;
+    max-width: 320px;
+  }
 }
 /* background */
 .modal {
