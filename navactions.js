@@ -1,25 +1,20 @@
-document.querySelector('.nav-button1').addEventListener('mouseup',function(){
-    document.location.href='compound-interest-calculator.html'
-})
+// Handle feature item clicks for navigation
+const features = document.querySelectorAll('.feature-item');
+const links = [
+    'compound-interest-calculator.html',  
+    'exchange-calculator.html',           
+    'loan.html',                         
+    'saving.html',                      
+    'expense.html',                      
+    'Personal.html'                      
+];
 
-document.querySelector('.nav-button2').addEventListener('mouseup',function(){
-    document.location.href='exchange-calculator.html'
-})
-
-document.querySelector('.nav-button3').addEventListener('mouseup',function(){
-    document.location.href='loan.html'
-})
-
-document.querySelector('.nav-button4').addEventListener('mouseup',function(){
-    document.location.href='saving.html'
-})
-
-document.querySelector('.nav-button5').addEventListener('mouseup',function(){
-    document.location.href='expense.html'
-})
-
-document.querySelector('.nav-button6').addEventListener('mouseup',function(){
-    document.location.href='Personal.html'
-})
+features.forEach((feature, index) => {
+    feature.addEventListener('click', function(){
+        if (links[index]) {
+            document.location.href = links[index];
+        }
+    });
+});
 
 
