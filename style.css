@@ -678,4 +678,31 @@ body{
     }
 }
 
+/* ===== Saving page simple intro ===== */
+.saving-page .saving-intro {
+    max-width: 980px;
+    margin: 26px auto 12px;
+    padding: 0 16px;
+    text-align: center;
+}
+
+.saving-page .saving-intro h1 {
+    margin: 0 0 8px;
+    font-size: 34px;
+    color: rgb(30, 36, 61);
+    font-weight: 800;
+}
+
+.saving-page .saving-intro p {
+    margin: 0;
+    color: rgb(95, 115, 150);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.saving-page .saving-features {
+    margin-top: 22px;
+    margin-bottom: 32px;
+}
+
 
