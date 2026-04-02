@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="loan.css" />
 </head>
 
-<body>
+<body class="loan-page">
   <h2 class="loantitle">Loan Calculator</h2>
   <main>
     <div class="main-wrapper">
@@ -53,22 +53,26 @@
 
       <!-- RIGHT: charts -->
       <section class="right-panel">
-        <div class="chart-row1">
-          <div class="chart-container">
+        <div class="loan-chart-grid">
+          <div class="chart-container loan-chart-card loan-chart-wide">
             <h3>Remaining Balance (by year)</h3>
-            <canvas id="balanceChart"></canvas>
+            <div class="loan-canvas-wrap loan-canvas-line">
+              <canvas id="balanceChart"></canvas>
+            </div>
           </div>
 
-          <div class="chart-container">
+          <div class="chart-container loan-chart-card loan-chart-pie">
             <h3>Principal vs Interest</h3>
-            <canvas id="pieChart"></canvas>
+            <div class="loan-canvas-wrap loan-canvas-pie">
+              <canvas id="pieChart"></canvas>
+            </div>
           </div>
-        </div>
 
-        <div class="chart-row2">
-          <div class="chart-container">
+          <div class="chart-container loan-chart-card loan-chart-wide">
             <h3>Cumulative Paid (by year)</h3>
-            <canvas id="cumulativeChart"></canvas>
+            <div class="loan-canvas-wrap loan-canvas-line loan-canvas-line-bottom">
+              <canvas id="cumulativeChart"></canvas>
+            </div>
           </div>
         </div>
       </section>
