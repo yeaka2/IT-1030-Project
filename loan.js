@@ -151,16 +151,20 @@ function updateBalanceChart(labels, data) {
                 borderColor: 'rgb(173, 196, 255)',
                 backgroundColor: 'rgba(173, 196, 255, 0.15)',
                 fill: true,
-                tension: 0.3
+                tension: 0.35,
+                borderWidth: 3,
+                pointRadius: 2,
+                pointHoverRadius: 4
             }]
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             layout: { padding: { top: 10, bottom: 10, left: 10, right: 10 } },
-            plugins: { legend: { labels: { font: { size: 14 } }, onClick: null } },
+            plugins: { legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, color: 'rgb(55, 70, 105)', usePointStyle: true }, onClick: null } },
             scales: {
-                y: { beginAtZero: true, ticks: { font: { size: 12 } } },
-                x: { ticks: { font: { size: 12 } } }
+                y: { beginAtZero: true, ticks: { font: { size: 11 }, color: 'rgb(95, 110, 145)' }, grid: { color: 'rgba(173, 196, 255, 0.2)' } },
+                x: { ticks: { font: { size: 11 }, color: 'rgb(95, 110, 145)' }, grid: { color: 'rgba(173, 196, 255, 0.12)' } }
             }
         }
     });
@@ -178,13 +182,16 @@ function updatePieChart(principal, interest) {
             datasets: [{
                 data: [principal.toFixed(2), interest.toFixed(2)],
                 backgroundColor: ['rgb(173, 196, 255)', 'rgb(200, 210, 255)'],
-                borderWidth: 1
+                borderColor: '#fff',
+                borderWidth: 2,
+                hoverOffset: 8
             }]
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             layout: { padding: { top: 10, bottom: 10 } },
-            plugins: { legend: { labels: { font: { size: 14 } }, onClick: null } }
+            plugins: { legend: { position: 'bottom', labels: { font: { size: 12, weight: '600' }, color: 'rgb(55, 70, 105)', usePointStyle: true, padding: 16 }, onClick: null } }
         }
     });
 }
@@ -203,24 +210,33 @@ function updateCumulativeChart(labels, principalData, interestData) {
                     label: 'Principal paid',
                     data: principalData,
                     borderColor: 'rgb(173, 196, 255)',
-                    fill: false
+                    fill: false,
+                    borderWidth: 3,
+                    pointRadius: 2,
+                    pointHoverRadius: 4,
+                    tension: 0.32
                 },
                 {
                     label: 'Interest paid',
                     data: interestData,
                     borderColor: 'rgb(200, 210, 255)',
                     borderDash: [5, 5],
-                    fill: false
+                    fill: false,
+                    borderWidth: 3,
+                    pointRadius: 2,
+                    pointHoverRadius: 4,
+                    tension: 0.32
                 }
             ]
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             layout: { padding: { top: 10, bottom: 10, left: 10, right: 10 } },
-            plugins: { legend: { labels: { font: { size: 14 } }, onClick: null } },
+            plugins: { legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, color: 'rgb(55, 70, 105)', usePointStyle: true }, onClick: null } },
             scales: {
-                y: { beginAtZero: true, ticks: { font: { size: 12 } } },
-                x: { ticks: { font: { size: 12 } } }
+                y: { beginAtZero: true, ticks: { font: { size: 11 }, color: 'rgb(95, 110, 145)' }, grid: { color: 'rgba(173, 196, 255, 0.2)' } },
+                x: { ticks: { font: { size: 11 }, color: 'rgb(95, 110, 145)' }, grid: { color: 'rgba(173, 196, 255, 0.12)' } }
             }
         }
     });
