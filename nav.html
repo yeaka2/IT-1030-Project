@@ -5,102 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investment & Finance Platform</title>
     <link rel="stylesheet" href="navstyle.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-      <nav>
-        <div class="nav-header">
-            <div class="nav-logo">💰</div>
-            <div class="nav-brand">
-                <h1 class="nav-title">FinanceHub</h1>
-                <p class="nav-subtitle">Investment & Finance Platform</p>
-            </div>
-        </div>
-        <div class="nav-menu">
-            <a class="nav-link nav-button1" title="Calculate compound interest">
-                <span class="link-icon">📊</span>
-                <span class="link-text">Compound Interest</span>
-            </a>
-            <a class="nav-link nav-button2" title="Check exchange rates">
-                <span class="link-icon">💱</span>
-                <span class="link-text">Exchange Rate</span>
-            </a>
-            <a class="nav-link nav-button3" title="Calculate loans">
-                <span class="link-icon">🏦</span>
-                <span class="link-text">Loan</span>
-            </a>
-            <a class="nav-link nav-button4" title="Plan savings">
-                <span class="link-icon">🎯</span>
-                <span class="link-text">Savings</span>
-            </a>
-            <a class="nav-link nav-button5" title="Track expenses">
-                <span class="link-icon">📈</span>
-                <span class="link-text">Expense</span>
-            </a>
-            <a class="nav-link nav-button6" title="View profile">
-                <span class="link-icon">👤</span>
-                <span class="link-text">Profile</span>
-            </a>
-        </div>
-      </nav>
-            <h1>Welcome to FinanceHub</h1>
-            <p>Your Powerful Investment & Finance Management Platform</p>
+        <h1>Welcome to FinanceHub</h1>
+        <p>Your Powerful Investment & Finance Management Platform</p>
         </div>
         
         <div class="features-container">
-          <div class="feature-item">
+          <div class="feature-item feature-1">
             <div class="feature-icon">📊</div>
-            <h3>Smart Calculations</h3>
-            <p>Calculate compound interest, loans, and savings with precision</p>
+            <h3>Compound Interest</h3>
+            <p>Calculate compound interest with precision</p>
           </div>
-          <div class="feature-item">
+          <div class="feature-item feature-2">
             <div class="feature-icon">💱</div>
-            <h3>Global Currencies</h3>
+            <h3>Exchange Rate</h3>
             <p>Real-time exchange rates for international transactions</p>
           </div>
-          <div class="feature-item">
+          <div class="feature-item feature-3">
+            <div class="feature-icon">🏦</div>
+            <h3>Loan</h3>
+            <p>Calculate loans and monthly payments</p>
+          </div>
+          <div class="feature-item feature-4">
+            <div class="feature-icon">🎯</div>
+            <h3>Savings</h3>
+            <p>Plan your savings goals effectively</p>
+          </div>
+          <div class="feature-item feature-5">
             <div class="feature-icon">📈</div>
-            <h3>Track & Manage</h3>
-            <p>Monitor your financial goals and expenses effectively</p>
+            <h3>Expense</h3>
+            <p>Monitor and track your expenses</p>
+          </div>
+          <div class="feature-item feature-6">
+            <div class="feature-icon">👤</div>
+            <h3>Profile</h3>
+            <p>View and manage your profile</p>
           </div>
         </div>
         
-        <div class="charts-section">
-          <h2>Financial Insights</h2>
-          <div class="charts-grid">
-            <div class="chart-card">
-              <h3>Investment Growth</h3>
-              <canvas id="growthChart"></canvas>
-            </div>
-            <div class="chart-card">
-              <h3>Currency Distribution</h3>
-              <canvas id="currencyChart"></canvas>
-            </div>
-            <div class="chart-card">
-              <h3>Monthly Expenses</h3>
-              <canvas id="expenseChart"></canvas>
-            </div>
-          </div>
-        </div>
-        
-        <div class="stats-section">
-          <div class="stat-card">
-            <div class="stat-number">$2.5M</div>
-            <div class="stat-label">Total Assets Managed</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">15K+</div>
-            <div class="stat-label">Active Users</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">98%</div>
-            <div class="stat-label">User Satisfaction</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">24/7</div>
-            <div class="stat-label">Support Available</div>
-          </div>
-        </div>
+
 
         <div class="cta-section">
           <h2>Ready to manage your finances smartly?</h2>
@@ -110,118 +54,5 @@
       <main>
       </main>
       <script src="navactions.js"></script>
-      <script>
-        // Investment Growth Chart
-        const growthCtx = document.getElementById('growthChart').getContext('2d');
-        new Chart(growthCtx, {
-          type: 'line',
-          data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-            datasets: [{
-              label: 'Portfolio Value ($K)',
-              data: [50, 65, 72, 85, 95, 110],
-              borderColor: 'rgb(173, 196, 255)',
-              backgroundColor: 'rgba(173, 196, 255, 0.1)',
-              borderWidth: 3,
-              fill: true,
-              tension: 0.4,
-              pointBackgroundColor: 'rgb(173, 196, 255)',
-              pointBorderColor: '#fff',
-              pointBorderWidth: 2,
-              pointRadius: 6,
-              pointHoverRadius: 8
-            }]
-          },
-          options: {
-            responsive: true,
-            plugins: {
-              legend: {
-                display: true,
-                labels: { font: { size: 12 }, padding: 15 }
-              }
-            },
-            scales: {
-              y: {
-                beginAtZero: true,
-                grid: { color: 'rgba(173, 196, 255, 0.1)' }
-              },
-              x: {
-                grid: { display: false }
-              }
-            }
-          }
-        });
-
-        // Currency Distribution Chart
-        const currencyCtx = document.getElementById('currencyChart').getContext('2d');
-        new Chart(currencyCtx, {
-          type: 'doughnut',
-          data: {
-            labels: ['USD', 'EUR', 'GBP', 'JPY', 'Others'],
-            datasets: [{
-              data: [40, 25, 15, 12, 8],
-              backgroundColor: [
-                'rgb(173, 196, 255)',
-                'rgb(150, 175, 255)',
-                'rgb(200, 215, 255)',
-                'rgb(130, 160, 255)',
-                'rgb(220, 235, 255)'
-              ],
-              borderColor: '#fff',
-              borderWidth: 2
-            }]
-          },
-          options: {
-            responsive: true,
-            plugins: {
-              legend: {
-                position: 'bottom',
-                labels: { font: { size: 12 }, padding: 15 }
-              }
-            }
-          }
-        });
-
-        // Monthly Expenses Chart
-        const expenseCtx = document.getElementById('expenseChart').getContext('2d');
-        new Chart(expenseCtx, {
-          type: 'bar',
-          data: {
-            labels: ['Food', 'Transport', 'Utility', 'Savings', 'Entertainment', 'Others'],
-            datasets: [{
-              label: 'Expenses ($)',
-              data: [300, 150, 200, 500, 100, 50],
-              backgroundColor: [
-                'rgb(173, 196, 255)',
-                'rgb(150, 175, 255)',
-                'rgb(200, 215, 255)',
-                'rgb(130, 160, 255)',
-                'rgb(180, 205, 255)',
-                'rgb(220, 235, 255)'
-              ],
-              borderRadius: 8,
-              borderWidth: 0
-            }]
-          },
-          options: {
-            responsive: true,
-            plugins: {
-              legend: {
-                display: true,
-                labels: { font: { size: 12 } }
-              }
-            },
-            scales: {
-              y: {
-                beginAtZero: true,
-                grid: { color: 'rgba(173, 196, 255, 0.1)' }
-              },
-              x: {
-                grid: { display: false }
-              }
-            }
-          }
-        });
-      </script>
 </body>
 </html>
