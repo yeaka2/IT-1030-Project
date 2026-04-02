@@ -29,6 +29,53 @@ nav{
     animation: navSlideDown 0.6s ease-out;
 }
 
+/* ===== Main Title Section ===== */
+body > h1 {
+    font-size: 48px;
+    color: rgb(30, 36, 61);
+    font-weight: 800;
+    text-align: center;
+    margin: 40px 0 10px 0;
+    background: linear-gradient(135deg, rgb(30, 36, 61) 0%, rgb(100, 150, 200) 50%, rgb(70, 120, 180) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+    animation: titleFadeIn 0.8s ease-out;
+}
+
+body > p {
+    font-size: 18px;
+    color: rgb(100, 120, 160);
+    text-align: center;
+    margin: 0 0 50px 0;
+    font-weight: 500;
+    letter-spacing: 1px;
+    animation: subtitleFadeIn 0.8s ease-out 0.2s both;
+}
+
+@keyframes titleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtitleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @keyframes navSlideDown {
     from {
         opacity: 0;
@@ -241,14 +288,48 @@ main{
     }
 }
 
+/* Features Container */
+.features-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
 .feature-item {
     background: linear-gradient(135deg, #ffffff 0%, rgb(248, 250, 255) 100%);
+    border-radius: 15px;
     padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(173, 196, 255, 0.15);
-    border: 1px solid rgba(173, 196, 255, 0.2);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
+    box-shadow: 0 8px 30px rgba(173, 196, 255, 0.2);
+    border: 2px solid rgb(173, 196, 255);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(173, 196, 255, 0.3);
+    border-color: rgb(150, 175, 255);
+}
+
+.feature-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.feature-item h3 {
+    color: rgb(70, 130, 255);
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.feature-item p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .feature-icon {
@@ -460,5 +541,52 @@ main{
 
     .cta-section h2 {
         font-size: 26px;
+    }
+}
+
+/* ===== Main Title Styling ===== */
+body > h1 {
+    font-size: 48px;
+    color: rgb(30, 36, 61);
+    font-weight: 800;
+    text-align: center;
+    margin: 40px 0 10px 0;
+    background: linear-gradient(135deg, rgb(30, 36, 61) 0%, rgb(100, 150, 200) 50%, rgb(70, 120, 180) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+    animation: titleFadeIn 0.8s ease-out;
+}
+
+body > p {
+    font-size: 18px;
+    color: rgb(100, 120, 160);
+    text-align: center;
+    margin: 0 0 50px 0;
+    font-weight: 500;
+    letter-spacing: 1px;
+    animation: subtitleFadeIn 0.8s ease-out 0.2s both;
+}
+
+@keyframes titleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtitleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
