@@ -179,9 +179,6 @@ function updateResultFields(principal, totalInterest, finalAmount, effectiveRate
     animateResults();
 }
 
-/**
- * Clear all result fields
- */
 function clearResults() {
     document.getElementById('displayPrincipal').textContent = 'HKD 0.00';
     document.getElementById('totalInterest').textContent = 'HKD 0.00';
@@ -192,9 +189,6 @@ function clearResults() {
     document.getElementById('profitMargin').textContent = '0.00%';
 }
 
-/**
- * Animate results with pulse effect
- */
 function animateResults() {
     const resultCards = document.querySelectorAll('.result-card');
     resultCards.forEach((card, index) => {
