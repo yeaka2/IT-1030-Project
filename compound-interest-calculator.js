@@ -1,7 +1,6 @@
 'use strict'
 
 let compoundChart = null;
-let pieChart = null;
 let comparisonChart = null;
 
 document.querySelector('.btn1').addEventListener('click',function(){
@@ -14,7 +13,6 @@ document.querySelector('.btn1').addEventListener('click',function(){
     document.querySelector('.output').value = Math.round(total*100)/100;
 
     updateCompoundChart(thePrin, theRate, theTime);
-    updatePieChart(thePrin, interest);
     updateComparisonChart(thePrin, theRate, theTime);
 });
 
@@ -58,28 +56,6 @@ function updateCompoundChart(principal, rate, years) {
                 y: { beginAtZero: true, ticks: { font: { size: 12 } } },
                 x: { ticks: { font: { size: 12 } } }
             }
-        }
-    });
-}
-
-// Update Pie Chart: Principal vs Interest
-function updatePieChart(principal, interest) {
-    if (pieChart) pieChart.destroy();
-    const ctx = document.getElementById('pieChart').getContext('2d');
-    pieChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Principal', 'Interest'],
-            datasets: [{
-                data: [principal.toFixed(2), interest.toFixed(2)],
-                backgroundColor: ['rgb(173, 196, 255)', 'rgb(200, 210, 255)'],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            layout: { padding: { top: 10, bottom: 10 } },
-            plugins: { legend: { labels: { font: { size: 14 } }, onClick: null } }
         }
     });
 }
