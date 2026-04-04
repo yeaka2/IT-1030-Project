@@ -162,16 +162,16 @@
 </head>
 <body>
     <script>
-        let users = [];
+        let users = [];  // Temporary in-memory user storage
         function register() {
             let username = document.bankForm.username.value;
             let password = document.bankForm.password.value;
-
+            // Validate Input
             if (!username || !password) {
                 document.bankForm.result.value = "Please fill in your account and password!";
                 return false;
             }
-
+            // Check if user already exists
             let userExists = false;
             for (let i = 0; i < users.length; i++) {
                 let currentUser = users[i];
@@ -184,24 +184,24 @@
                 document.bankForm.result.value = "Username already registered!";
                 return;
             }
-            users.push({ username, password });
+            users.push({ username, password }); // Store new user and update logs
             let logContent = document.bankForm.logArea.value;
             let newLog = `User: ${username} registered successfully\n` +
                          `_ _ _ _ _ _ _\n`;
             document.bankForm.logArea.value = logContent + newLog;
             document.bankForm.result.value = "Register successfully!";
-            document.bankForm.username.value = "";
+            document.bankForm.username.value = ""; // Clear inputs
             document.bankForm.password.value = "";
         }
         function login() {
             let username = document.bankForm.username.value;
             let password = document.bankForm.password.value;
-
+           
             if (!username || !password) {
                 document.bankForm.result.value = "Please fill in your account and password!";
                 return;
             }
-
+             // Find user in array
             let foundUser = undefined;
             for (let i = 0; i < users.length; i++) {
                 let currentUser = users[i];
@@ -216,6 +216,7 @@
                              `_ _ _ _ _ _ _\n`;
                 document.bankForm.logArea.value = logContent + newLog;
                 document.bankForm.result.value = "Login successfully!";
+                // Redirect after success
                 setTimeout(function() {
                     window.location.href = "nav.html";
                 }, 1);
