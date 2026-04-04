@@ -46,61 +46,6 @@
                     <button class="btn1" id="calculateBtn">Calculate</button>
                     <button class="btn2" onclick="window.location.href='nav.html'">Back</button>
                 </div>
-
-                <!-- Results Section -->
-                <div class="results-section">
-                    <h3>📊 Calculation Results</h3>
-                    
-                    <div class="results-grid">
-                        <!-- Principal Amount -->
-                        <div class="result-card principal-card">
-                            <div class="result-label">Principal Amount</div>
-                            <div class="result-value" id="displayPrincipal">HKD 0.00</div>
-                            <div class="result-subtitle">Initial Investment</div>
-                        </div>
-
-                        <!-- Total Interest -->
-                        <div class="result-card interest-card">
-                            <div class="result-label">Total Interest Earned</div>
-                            <div class="result-value interest-highlight" id="totalInterest">HKD 0.00</div>
-                            <div class="result-subtitle">Profit from Investment</div>
-                        </div>
-
-                        <!-- Final Amount -->
-                        <div class="result-card final-card">
-                            <div class="result-label">Final Amount</div>
-                            <div class="result-value final-highlight" id="finalAmount">HKD 0.00</div>
-                            <div class="result-subtitle">Principal + Interest</div>
-                        </div>
-
-                        <!-- Effective Rate -->
-                        <div class="result-card rate-card">
-                            <div class="result-label">Effective Annual Rate</div>
-                            <div class="result-value" id="effectiveRate">0.00%</div>
-                            <div class="result-subtitle">Actual Yearly Return</div>
-                        </div>
-                    </div>
-
-                    <!-- Summary Section -->
-                    <div class="summary-box">
-                        <div class="summary-row">
-                            <span class="summary-label">Investment Period:</span>
-                            <span class="summary-value" id="summaryPeriod">0 years</span>
-                        </div>
-                        <div class="summary-row">
-                            <span class="summary-label">Interest Rate:</span>
-                            <span class="summary-value" id="summaryRate">0.00%</span>
-                        </div>
-                        <div class="summary-row">
-                            <span class="summary-label">Compounding:</span>
-                            <span class="summary-value" id="summaryCompounding">Monthly</span>
-                        </div>
-                        <div class="summary-row highlight-row">
-                            <span class="summary-label">Profit Margin:</span>
-                            <span class="summary-value" id="profitMargin">0.00%</span>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <!-- RIGHT PANEL: Chart n info-->
@@ -127,6 +72,61 @@
                     </div>
                 </div>
             </section>
+        </div>
+
+        <!-- Results Section (Moved to span full width below the panels) -->
+        <div class="results-section">
+            <h3>📊 Calculation Results</h3>
+            
+            <div class="results-grid">
+                <!-- Principal Amount -->
+                <div class="result-card principal-card">
+                    <div class="result-label">Principal Amount</div>
+                    <div class="result-value" id="displayPrincipal">HKD 0.00</div>
+                    <div class="result-subtitle">Initial Investment</div>
+                </div>
+
+                <!-- Total Interest -->
+                <div class="result-card interest-card">
+                    <div class="result-label">Total Interest Earned</div>
+                    <div class="result-value interest-highlight" id="totalInterest">HKD 0.00</div>
+                    <div class="result-subtitle">Profit from Investment</div>
+                </div>
+
+                <!-- Final Amount -->
+                <div class="result-card final-card">
+                    <div class="result-label">Final Amount</div>
+                    <div class="result-value final-highlight" id="finalAmount">HKD 0.00</div>
+                    <div class="result-subtitle">Principal + Interest</div>
+                </div>
+
+                <!-- Effective Rate -->
+                <div class="result-card rate-card">
+                    <div class="result-label">Effective Annual Rate</div>
+                    <div class="result-value" id="effectiveRate">0.00%</div>
+                    <div class="result-subtitle">Actual Yearly Return</div>
+                </div>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="summary-box">
+                <div class="summary-row">
+                    <span class="summary-label">Investment Period:</span>
+                    <span class="summary-value" id="summaryPeriod">0 years</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Interest Rate:</span>
+                    <span class="summary-value" id="summaryRate">0.00%</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Compounding:</span>
+                    <span class="summary-value" id="summaryCompounding">Monthly</span>
+                </div>
+                <div class="summary-row highlight-row">
+                    <span class="summary-label">Profit Margin:</span>
+                    <span class="summary-value" id="profitMargin">0.00%</span>
+                </div>
+            </div>
         </div>
     </main>
 
