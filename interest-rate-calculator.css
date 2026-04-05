@@ -1,0 +1,353 @@
+@import url("style.css");
+
+body {
+    background:linear-gradient(to bottom,rgb(173, 196, 255),#ffffff);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.rate-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+}
+
+.rate-container .input3 {
+    flex: 1;
+}
+
+.btn-refresh {
+    padding: 12px 20px;
+    height: 100px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-refresh:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+.btn-refresh:active {
+    transform: scale(0.98);
+}
+
+.btn-refresh.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.output-final,
+.output-interest,
+.output-rate {
+    height: 80px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* Results Section Styles */
+.results-section {
+    margin-top: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.results-section h3 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 0px;
+}
+
+.result-card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #667eea;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.principal-card {
+    border-left-color: #667eea;
+}
+
+.interest-card {
+    border-left-color: #f5576c;
+}
+
+.final-card {
+    border-left-color: #4CAF50;
+}
+
+.rate-card {
+    border-left-color: #ff9800;
+}
+
+.result-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.result-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-family: 'Courier New', monospace;
+}
+
+.interest-highlight {
+    color: #f5576c;
+}
+
+.final-highlight {
+    color: #4CAF50;
+}
+
+.result-subtitle {
+    font-size: 11px;
+    color: #95a5a6;
+    font-weight: 500;
+}
+
+/* Summary Box */
+.summary-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #667eea;
+    margin-top: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.summary-row:last-child {
+    border-bottom: none;
+}
+
+.summary-label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+.summary-value {
+    font-weight: 700;
+    color: #667eea;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+}
+
+.highlight-row {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8f0ff 100%);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: none;
+}
+
+.highlight-row .summary-value {
+    color: #f5576c;
+    font-size: 16px;
+}
+
+.chart-container {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 12px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-container h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.chart-container canvas {
+    flex: 1;
+}
+
+.info-box {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.info-box h3 {
+    color: white;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.info-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 15px;
+    color: #2c3e50;
+}
+
+.info-content p {
+    margin: 10px 0;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.info-content p strong {
+    color: #667eea;
+}
+
+#currentRate {
+    color: #f5576c;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.rate-formula {
+    background: #f0f4ff;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 12px;
+    border-left: 4px solid #667eea;
+}
+
+.rate-formula p {
+    margin: 5px 0;
+    font-family: 'Courier New', monospace;
+    color: #2c3e50;
+}
+
+/* refresh button,loading state */
+.btn-refresh.loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 3px solid white;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 900px) {
+    .main-wrapper {
+        flex-direction: column;
+    }
+
+    .chart-container {
+        height: 300px;
+    }
+
+    .rate-container {
+        flex-direction: column;
+    }
+
+    .btn-refresh {
+        width: 100%;
+    }
+
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Input */
+input[type="number"]:focus,
+input[type="text"]:focus,
+select:focus {
+    outline: none;
+    background-color: #d9d9f0;
+    box-shadow: 0 0 12px rgba(173, 196, 255, 0.5);
+    transform: scale(1.02);
+}
+
+/*  successful calculation aniamtion */
+@keyframes successPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes resultPulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.output-final.success,
+.output-interest.success,
+.output-rate.success {
+    animation: successPulse 0.5s ease-out;
+}
