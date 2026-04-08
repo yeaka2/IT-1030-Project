@@ -1,12 +1,11 @@
 // Handle feature item clicks for navigation
 const features = document.querySelectorAll('.feature-item');
 const links = [
-    'compound-interest-calculator.html',  
-    'exchange-calculator.html',           
-    'loan.html',                         
-    'saving.html',                      
-    'expense.html',                      
-    'Personal.html'                      
+    'compound-interest-calculator.html',  // Compound Interest
+    'exchange-calculator.html',           // Exchange Rate
+    'loan.html',                          // Loan
+    'saving.html',                        // Savings
+    'expense.html'                        // Expense
 ];
 
 features.forEach((feature, index) => {
@@ -14,6 +13,14 @@ features.forEach((feature, index) => {
         if (links[index]) {
             document.location.href = links[index];
         }
+
+
+
+
+
+
+
+        
     });
 });
 
