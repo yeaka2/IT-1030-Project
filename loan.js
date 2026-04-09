@@ -29,6 +29,7 @@ document.querySelector('.btn1').addEventListener('click', function () {
         "Total Interest": money(result.totalInterest),
         "Total Payment": money(result.totalPayment)
     };
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         showLoanBill(billData); 
 });
 
@@ -273,7 +274,6 @@ function showLoanBill(loanData) {
   const modalContent = document.querySelector('.modal-content');
 
   content.innerHTML = '';
-
   for (const key in loanData) {
     if (loanData.hasOwnProperty(key)) {
       const p = document.createElement('p');
@@ -281,21 +281,24 @@ function showLoanBill(loanData) {
       content.appendChild(p);
     }
   }
+
+  // ── Show modal & lock scroll ──────────────────────────
   modal.classList.remove('hidden');
-  overlay.classList.remove('hidden'); 
+  overlay.classList.remove('hidden');
   modalContent.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';          // 🔒 lock
 
-  document.querySelector('.close-btn').onclick = function() {
-    modal.classList.add('hidden'); 
-    overlay.classList.add('hidden'); 
+  // ── Helper: close everything & restore scroll ─────────
+  function closeModal() {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
     modalContent.classList.add('hidden');
+    document.body.style.overflow = '';              // 🔓 unlock
   }
 
-  window.onclick = function(event) {
-    if (event.target === modal) {
-      modal.classList.add('hidden');
-      overlay.classList.add('hidden');
-      modalContent.classList.add('hidden');
-    }
-  }
+  document.querySelector('.close-btn').onclick = closeModal;
+
+  window.onclick = function (event) {
+    if (event.target === modal) closeModal();
+  };
 }
