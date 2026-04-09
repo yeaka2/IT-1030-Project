@@ -12,6 +12,7 @@
   max-width: 1500px;
   margin-left: auto;
   margin-right: auto;
+  overflow: auto;
 }
 
 .loan-page .left-panel {
@@ -216,4 +217,12 @@
   color: #2c3e50;
   min-width: 180px;
   display: inline-block;
+}
+
+.graph1, .graph2{
+  width: 90%;
+}
+
+.graph3 {
+width: 96%;
 }
