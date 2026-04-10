@@ -1,4 +1,4 @@
-# FinanceHub - Investment & Finance Platform
+# 🏦FinanceHub - Investment & Finance Platform
 
 FinanceHub is a browser-based personal finance and investment toolkit built with HTML, CSS, and Vanilla JavaScript. It combines multiple financial calculators into one clean web interface, including tools for compound interest, Hong Kong bank rates, currency exchange, loans, savings, and expenses.
 
