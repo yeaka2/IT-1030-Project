@@ -328,6 +328,8 @@ Used by the Hong Kong interest rate calculator to retrieve the latest Best Lendi
 
 ## 🙏 Acknowledgements
 
+#### All our team member would like to sincerely thank our Professor, Dr. Ndudi Ezeamuzie, for guiding us in applying knowledge learned in class, and encouraging us to explore additional knowlege beyond the curriculum to succesully complete this Project.
+
 - Hong Kong Monetary Authority (HKMA)
 - ExchangeRate-API
 - This project is made by:
