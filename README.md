@@ -331,14 +331,14 @@ Used by the Hong Kong interest rate calculator to retrieve the latest Best Lendi
 - Hong Kong Monetary Authority (HKMA)
 - ExchangeRate-API
 - This project is made by:
-  ZHU Jinze (Most contributions, Core member)
-  WEI Boyuan (Core member)
-  LIAO Junming (Group leader, Core member)
-  XIE Zhiyuan (Core member)
-  LUO Wenqi
-  CHAN Wing Yiu
-  GAN Lu
-  LUO Zhenyu
+- ZHU Jinze (Most contributions, Core member)
+- WEI Boyuan (Core member)
+- LIAO Junming (Group leader, Core member)
+- XIE Zhiyuan (Core member)
+- LUO Wenqi
+- CHAN Wing Yiu
+- GAN Lu
+- LUO Zhenyu
 
 ---
 
