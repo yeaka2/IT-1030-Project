@@ -1,32 +1,318 @@
-# FinanceHub (IT-1030-Project)
+# FinanceHub - Investment & Finance Platform
 
-**FinanceHub** is a comprehensive Investment & Finance Management Platform designed to help users calculate, track, and manage their personal finances [17]. It offers a suite of interactive calculators for loans, savings, expenses, and currency exchange, complete with dynamic visual charts.
+FinanceHub is a browser-based personal finance and investment toolkit that combines multiple financial calculators into one simple web interface. It includes a central dashboard, a basic login/register entry screen, and separate tools for compound interest, Hong Kong bank interest rates, currency exchange, loans, savings, and expenses.
 
-## 🌟 Features
+---
 
-The platform includes several modular financial tools:
+## Overview
 
-*   **Compound Interest Calculator** (`compound-interest-calculator.html`): Calculates compound interest over time and visualizes principal versus interest growth using interactive line and doughnut charts [1, 2].
-*   **Savings Calculator** (`saving.html`): Computes future savings based on an initial balance, monthly deposits, and annual interest rates. It focuses solely on deposit growth over time [21, 22, 23].
-*   **Expense Calculator** (`expense.html`): Calculates total outlay over time based on monthly expenses across categories such as Household, Transport, Food & Beverage, and Lifestyle. Includes category breakdown charts [7, 8, 21].
-*   **Loan Calculator** (`loan.html`): Computes fixed-rate amortizing loans to determine monthly payments, total interest, and total payment. It features a detailed monthly amortization schedule and generates a formatted "Loan Bill" [13, 14].
-*   **Currency Exchange Calculator** (`exchange-calculator.html`): Provides real-time currency conversions using the ExchangeRate-API. It features a conversion analysis chart and an exchange rate comparison for top currencies [4, 5].
-*   **Hong Kong Bank Interest Rate Calculator** (`interest-rate-calculator.html`): Fetches the latest Best Lending Rate live from the Hong Kong Monetary Authority (HKMA) API to calculate exact investment returns and profit margins [10, 11].
-*   **Virtual Bank Login ** (`Register-Login.html`): A secure login and registration interface [20, 27].
+This project is designed to help users quickly perform common financial calculations and visualize the results through charts and summary panels.
 
-## 🛠️ Technologies Used
+### Main capabilities
+- Login / Register user interface
+- Compound interest calculation
+- Hong Kong best lending rate calculation
+- Currency exchange conversion
+- Loan repayment and amortization analysis
+- Savings growth estimation
+- Expense tracking and visualization
 
-*   **Frontend**: HTML5, CSS3, and Vanilla JavaScript.
-*   **Data Visualization**: **Chart.js** is utilized across the platform to render dynamic line charts, pie/doughnut charts, and bar charts for visual financial analysis [2, 5, 8, 11, 14].
-*   **External APIs**: 
-    *   `ExchangeRate-API` for fetching real-time global currency rates [5].
-    *   `HKMA API` for retrieving the latest Hong Kong Best Lending Rates [11].
+---
 
-## 🚀 How to Use
+## Features
 
-1. Clone or download the repository to your local machine.
-2. No backend server or build process is required for the core calculators.
-3. Open `nav.html` in your web browser to access the main navigation dashboard [17].
-4. Click on any of the feature cards (Compound Interest, Exchange Rate, Loan, Savings, Expense, or Profile) to launch the respective tool.
+### 1. Login / Register
+A simple banking-style entry page with:
+- Username field
+- Password field
+- Status display
 
-*Note: The Currency Exchange and Hong Kong Bank Interest Rate calculators require an active internet connection to fetch real-time data from their respective APIs [5, 11].*
+> Note: In the provided files, this page functions as a front-end UI screen.
+
+### 2. Compound Interest Calculator
+This module allows users to:
+- Enter principal amount
+- Enter investment time in years
+- Enter annual interest rate
+- Calculate the final total
+
+It also includes:
+- Compound interest growth chart
+- Simple vs compound interest comparison chart
+
+### 3. Hong Kong Interest Rate Calculator
+This module is tailored to Hong Kong bank rates and supports:
+- Principal amount input
+- Investment period input
+- Best Lending Rate input
+- Refreshing the latest rate
+- Multiple compounding frequencies:
+  - Annual
+  - Semi-Annual
+  - Quarterly
+  - Monthly
+  - Daily
+
+Displayed results include:
+- Principal amount
+- Total interest earned
+- Final amount
+- Effective annual rate
+- Profit margin
+- Growth chart over time
+
+### 4. Currency Exchange Calculator
+This module supports:
+- Selecting source currency
+- Entering an amount
+- Selecting target currency
+- Viewing the exchange rate
+- Calculating converted amount
+
+It also includes charts for:
+- Exchange rate comparison
+- Top currencies
+- Conversion analysis
+
+### 5. Loan Calculator
+This module provides:
+- Loan amount input
+- Loan term in years
+- Annual interest rate input
+
+Outputs include:
+- Monthly payment
+- Total interest
+- Total payment
+
+Additional analysis features:
+- Remaining balance by year chart
+- Principal vs interest chart
+- Cumulative paid by year chart
+- Monthly amortization schedule
+- Loan bill summary modal
+
+### 6. Savings Calculator
+This tool estimates future savings using:
+- Initial balance
+- Monthly deposit
+- Annual interest rate
+- Time in years
+
+It calculates projected savings based on compound growth logic.
+
+### 7. Expense Calculator
+This tool estimates total expenses across the selected period using monthly spending in categories such as:
+- Household
+- Transport
+- Food & Beverage
+- Financial
+- Family
+- Shopping
+- Lifestyle
+- Personal Care
+- Others
+
+It also provides:
+- Spending distribution chart
+- Category breakdown chart
+
+---
+
+## Tech Stack
+
+- **HTML5** for structure
+- **CSS3** for layout, styling, and responsiveness
+- **Vanilla JavaScript** for logic and interactions
+- **Chart.js** for charts and visualizations
+- **External APIs** for live financial data
+
+---
+
+## Project Structure
+
+```text
+.
+├── Register-Login.html
+├── nav.html
+├── navstyle.css
+├── navactions.js
+├── style.css
+├── compound-interest-calculator.html
+├── compound-interest-calculator.js
+├── interest-rate-calculator.html
+├── interest-rate-calculator.css
+├── interest-rate-calculator.js
+├── exchange-calculator.html
+├── exchange-calculator.css
+├── exchange-calculator.js
+├── loan.html
+├── loan.css
+├── loan.js
+├── saving.html
+├── savings.js
+├── expense.html
+└── expense.js
+```
+
+---
+
+## Module Details
+
+### Compound Interest Calculator
+Calculates final value using annual compounding.
+
+**Formula:**
+```text
+A = P × (1 + r)^t
+```
+
+Where:
+- `A` = final amount
+- `P` = principal
+- `r` = annual interest rate
+- `t` = time in years
+
+---
+
+### Hong Kong Interest Rate Calculator
+Calculates compound interest using selectable compounding frequency.
+
+**Formula:**
+```text
+A = P × (1 + r / n)^(n × t)
+```
+
+Where:
+- `A` = final amount
+- `P` = principal
+- `r` = annual rate
+- `n` = compounding frequency
+- `t` = time in years
+
+---
+
+### Savings Calculator
+The savings logic:
+- compounds the initial balance monthly
+- adds the future value of recurring monthly deposits
+
+This makes it suitable for long-term savings planning.
+
+---
+
+### Loan Calculator
+Uses a standard fixed-rate amortization model with monthly payments.
+
+Outputs include:
+- monthly repayment
+- total interest paid
+- total amount paid over the loan term
+- full monthly amortization table
+
+---
+
+### Expense Calculator
+The total expense is based on:
+
+```text
+(sum of all monthly categories) × 12 × years
+```
+
+This helps estimate multi-year spending.
+
+---
+
+### Currency Exchange Calculator
+The app:
+- fetches exchange rates
+- computes the rate between two selected currencies
+- converts the entered amount
+
+Basic conversion logic:
+
+```text
+Converted Amount = Amount × Exchange Rate
+```
+
+---
+
+## How to Run
+
+### Option 1: Open directly in a browser
+You can open:
+
+- `nav.html` for the main dashboard
+- `Register-Login.html` for the login/register screen
+
+### Option 2: Run with a local server
+A local server is recommended, especially for features that call external APIs.
+
+Example using Python:
+
+```bash
+python -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000/nav.html
+```
+
+---
+
+## Navigation Flow
+
+1. Open the login page or main dashboard
+2. Select a financial tool
+3. Enter the required values
+4. Click **Calculate** or **Convert**
+5. Review the numeric output, charts, and tables
+
+---
+
+## External Data Sources
+
+### 1. Exchange Rate API
+Used by the currency exchange calculator to retrieve live conversion rates.
+
+### 2. Hong Kong Monetary Authority (HKMA) API
+Used by the Hong Kong interest rate calculator to retrieve the latest Best Lending Rate.
+
+---
+
+## Notes
+
+- This project appears to be a front-end web application.
+- No backend, database, or server-side authentication logic is included in the provided files.
+- The login/register page currently behaves as a UI page rather than a complete authentication system.
+- Internet access is required for live exchange-rate data and HKMA rate refresh.
+- Some pages include UI sections that can be expanded further with additional logic.
+
+---
+
+## Possible Improvements
+
+- Add real user authentication and session management
+- Store user calculation history
+- Add backend support for secure data handling
+- Move API credentials to a secure environment
+- Improve error handling and validation across all tools
+- Expand the savings page with full chart and summary logic
+- Add test coverage and deployment instructions
+- Improve accessibility and mobile responsiveness further
+
+---
+
+## Acknowledgements
+
+- Hong Kong Monetary Authority (HKMA)
+- ExchangeRate-API
+
+---
+
+## License
+
+No license file was included in the provided source set.  
+If needed, add a license such as MIT before publishing.
