@@ -342,6 +342,12 @@ Used by the Hong Kong interest rate calculator to retrieve the latest Best Lendi
 
 ---
 
+## 🙏 Teacher Dr.Ndudi Ezeamuzie:
+
+- Thank you, teacher, for teaching us a new programming language, JavaScript. It enables us to learn to think logically about how to solve some problems in our social life, thus turning some difficult things into something new.
+
+---
+
 ## 📄 License
 
 No license file was included in the provided source set.  
